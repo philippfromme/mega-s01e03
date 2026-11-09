@@ -1,0 +1,8 @@
+node_modules/
+.svelte-kit/
+build/
+*.log
+npm-debug.log*
+.env*
+/src/lib/data/reports-4471.json
+/src/lib/data/desk-notes.json

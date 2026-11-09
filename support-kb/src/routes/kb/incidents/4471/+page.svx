@@ -1,0 +1,38 @@
+---
+layout: runbook
+title: '#4471 · dates parse mm/dd in eu locales'
+owner: support desk
+status: known
+reviewed: 2026-11-09
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+Since April, people have told us their bookings land on the wrong day. The export contains
+**412 unique reports** merged into this ticket by 4 October.
+
+The original entry treated this as one parser bug with one queued fix. The current knowledge-base
+model groups the reports into two working causes and leaves five flagged records unresolved.
+See the [cause review](/kb/incidents/4471/causes) before using the original diagnosis.
+
+<Callout kind="warn">
+Known ticket; cause and fix coverage have not been independently verified for every report.
+</Callout>
+
+## What was merged
+
+<CauseTable ticket={4471} />
+
+## Since April
+
+<QueueTimeline ticket={4471} />
+
+## Lessons
+
+- A merged count is not proof of a single cause.
+- Keep unresolved examples visible and avoid counting a subset twice.
+- Recheck the rendered data against the ticket before relying on old prose.

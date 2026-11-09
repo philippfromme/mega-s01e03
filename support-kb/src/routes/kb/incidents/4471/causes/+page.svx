@@ -1,0 +1,54 @@
+---
+layout: runbook
+title: '#4471 · date reports: two working groups'
+owner: support desk
+status: investigating
+reviewed: 2026-11-09
+signature: Copilot App / MEGA.dev S01E03
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import ReportReviewQueue from '#lib/kb/ReportReviewQueue.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+This re-read uses aggregate results from the exported reports and the grouping logic that runs
+in the knowledge base. It is a working classification, not independent proof of root cause.
+The original #4471 entry called this one parser bug and one queued fix; the current model
+distinguishes two groups.
+
+## What the model finds
+
+<CauseTable ticket={4471} />
+
+The larger group is classified as **parser**: the shared parser reads month first while the
+tenant locale writes day first. It includes app and email reports as well as booking-v2 forms.
+The other group is classified as **hint**: a day-first tenant uses booking-v3, whose form hint
+is month first, and the report came through that form. These are separate issue candidates, not
+proof that every report in either group has that root cause.
+
+The classifier uses tenant locale, booking form, and channel. It does not use the intake tag.
+Those tags disagree with the working groups, so they should not be used as the cause count.
+The counts above deduplicate overlapping export rows and include only reports merged into
+#4471. Raw report records are deliberately kept out of this public repository.
+
+## Reports that still need a human read
+
+The desk separately flagged some records. The current model places them in the parser group,
+but their reported clues are not fully explained by a month/day parser flip. They remain an
+unresolved subset of that group's count, not a proven third cause:
+
+<ReportReviewQueue />
+
+Do not add these again to the issue coverage totals. The different clues need individual
+investigation before assigning another root cause.
+
+## Triage policy is still open
+
+Accepted decision 0001 says to merge by subject alone. The interactive triage example instead
+compares the model's tenant/channel groups. This export cannot establish which rule the live
+desk follows or authorize a replacement policy, so decision 0001 remains unchanged. Confirm
+the intended merge rule with the desk before recording a new accepted decision.
+
+<RenderStamp {signature} />

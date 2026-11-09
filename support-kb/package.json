@@ -1,0 +1,23 @@
+{
+  "name": "support-kb",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --host 127.0.0.1",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "analyze-export": "node scripts/analyze-export.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build": "vite build",
+    "capture:desk-view": "node scripts/capture-rendered-output.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^6.0.0",
+    "@sveltejs/kit": "^2.37.1",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "mdsvex": "^0.12.6",
+    "svelte": "^5.39.6",
+    "svelte-check": "^4.3.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
+  }
+}

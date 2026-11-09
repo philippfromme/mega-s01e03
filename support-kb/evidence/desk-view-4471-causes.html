@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--e2jw2j--><!----><title>#4471 · date reports: two working groups · support kb</title>
+  <style>:root{--bg: #fbfaf7;--fg: #1d1d1b;--muted: #6b6a66;--line: #e3e0d8;--accent: #2f6f5e;--warn: #b4501f;--warn-bg: #fbeee6;--note-bg: #eef5f2;--mono: ui-monospace, "Cascadia Code", Menlo, monospace}@media(prefers-color-scheme:dark){:root{--bg: #171716;--fg: #ecebe6;--muted: #9c9a93;--line: #34332f;--accent: #6fbfa6;--warn: #f0905d;--warn-bg: #3a2418;--note-bg: #1d2c27}}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif}.kb table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}.kb th,.kb td{border-bottom:1px solid var(--line);padding:.35rem .5rem;text-align:left}.kb code{font-family:var(--mono);font-size:.88em}.kb a{color:var(--accent)}.kb.svelte-e2jw2j{max-width:760px;margin:0 auto;padding:2rem 16px 4rem}.crumb.svelte-e2jw2j{font:.8rem var(--mono);text-decoration:none;color:var(--muted)}h1.svelte-e2jw2j{margin:.25rem 0 .5rem;line-height:1.2}.meta.svelte-e2jw2j{display:flex;flex-wrap:wrap;gap:.5rem 1rem;color:var(--muted);font-size:.85rem;margin:0}.status.svelte-e2jw2j{border:1px solid var(--line);border-radius:99px;padding:0 .6rem}.stale.svelte-e2jw2j{color:var(--warn);font-weight:600}.banner.svelte-e2jw2j{background:var(--warn-bg);color:var(--warn);padding:.6rem 1rem;border-radius:6px}footer.svelte-e2jw2j{margin-top:3rem;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);padding-top:1rem}
+</style>
+<style>.sum.svelte-12oyimm{font-size:1.1rem}.tags.svelte-12oyimm,.note.svelte-12oyimm{color:var(--muted);font-size:.85em}.separate.svelte-12oyimm td:where(.svelte-12oyimm){background:var(--warn-bg)}.separate.svelte-12oyimm td:where(.svelte-12oyimm):last-child{color:var(--warn);font-weight:600}
+</style>
+<style>.stamp.svelte-1280m42{margin:2rem 0 0;font:.85rem var(--mono);color:var(--muted)}.stamp.svelte-1280m42 b:where(.svelte-1280m42){color:var(--accent);letter-spacing:.04em}.missing.svelte-1280m42{color:var(--warn)}
+</style></head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents"><!--[--><!--[0--><!--[--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 · date reports: two working groups</h1> <p class="meta svelte-e2jw2j"><span>owner <b>support desk</b></span> <span class="status investigating svelte-e2jw2j">investigating</span> <span class="svelte-e2jw2j">reviewed 2026-11-09 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><p>This re-read uses aggregate results from the exported reports and the grouping logic that runs
+in the knowledge base. It is a working classification, not independent proof of root cause.
+The original #4471 entry called this one parser bug and one queued fix; the current model
+distinguishes two groups.</p> <h2>What the model finds</h2> <p class="sum svelte-12oyimm"><strong>412</strong> unique reports merged into #4471 · <strong>2</strong> working cause groups</p> <table><thead><tr><th>working group</th><th>reports</th><th>channels</th><th>intake tags</th><th>tenants</th><th>seen</th><th>ticket relation</th></tr></thead><tbody><!--[--><tr class="svelte-12oyimm"><td class="svelte-12oyimm"><code>parser</code></td><td class="svelte-12oyimm">379</td><td class="tags svelte-12oyimm">app ×204 · email ×150 · form ×25</td><td class="tags svelte-12oyimm">parser ×356 · hint ×23</td><td class="svelte-12oyimm">11</td><td class="svelte-12oyimm">2026-04-01 → 2026-10-04</td><td class="svelte-12oyimm">largest group in #4471</td></tr><tr class="svelte-12oyimm separate"><td class="svelte-12oyimm"><code>hint</code></td><td class="svelte-12oyimm">33</td><td class="tags svelte-12oyimm">form ×33</td><td class="tags svelte-12oyimm">hint ×18 · parser ×15</td><td class="svelte-12oyimm">3</td><td class="svelte-12oyimm">2026-04-17 → 2026-09-22</td><td class="svelte-12oyimm">also merged into #4471</td></tr><!--]--></tbody></table> <p class="note svelte-12oyimm">5 reports were flagged for review; the working model places them within the groups above.</p><!----> <p>The larger group is classified as <strong>parser</strong>: the shared parser reads month first while the
+tenant locale writes day first. It includes app and email reports as well as booking-v2 forms.
+The other group is classified as <strong>hint</strong>: a day-first tenant uses booking-v3, whose form hint
+is month first, and the report came through that form. These are separate issue candidates, not
+proof that every report in either group has that root cause.</p> <p>The classifier uses tenant locale, booking form, and channel. It does not use the intake tag.
+Those tags disagree with the working groups, so they should not be used as the cause count.
+The counts above deduplicate overlapping export rows and include only reports merged into
+#4471. Raw report records are deliberately kept out of this public repository.</p> <h2>Reports that still need a human read</h2> <p>The desk separately flagged some records. The current model places them in the parser group,
+but their reported clues are not fully explained by a month/day parser flip. They remain an
+unresolved subset of that group’s count, not a proven third cause:</p> <p>5 reports were flagged by the desk. Their reported clues include a June-only date offset, an invite apparently preceding a booking, a cross-time-zone date mismatch, and a date reportedly moved manually.</p> <p>These are unresolved examples within the existing parser-group total, not a proven third cause. Raw report identifiers and text are intentionally not included in this public summary.</p><!----> <p>Do not add these again to the issue coverage totals. The different clues need individual
+investigation before assigning another root cause.</p> <h2>Triage policy is still open</h2> <p>Accepted decision 0001 says to merge by subject alone. The interactive triage example instead
+compares the model’s tenant/channel groups. This export cannot establish which rule the live
+desk follows or authorize a replacement policy, so decision 0001 remains unchanged. Confirm
+the intended merge rule with the desk before recording a new accepted decision.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-SBDK-8D58</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+		</div>
+  </body>
+</html>
