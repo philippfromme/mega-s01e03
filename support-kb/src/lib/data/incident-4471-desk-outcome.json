@@ -1,0 +1,8 @@
+{
+  "source": "MEGA.dev course page, signed-in view after reload: NEW desk update, engineering update (observed directly in the course browser; not a GitHub comment)",
+  "ticketClosed": "05 oct",
+  "outcomes": [
+    { "cause": "parser", "status": "FIXED", "detail": "fix(dates): parse dd/mm for eu locales" },
+    { "cause": "hint", "status": "WON'T FIX", "detail": "booking-v3 form retired" }
+  ]
+}

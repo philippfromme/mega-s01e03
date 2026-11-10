@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · date reports: two working groups'
 owner: support desk
-status: investigating
+status: desk update recorded
 reviewed: 2026-11-09
 signature: Copilot App / MEGA.dev S01E03
 ---
@@ -10,6 +10,7 @@ signature: Copilot App / MEGA.dev S01E03
 <script>
   import CauseTable from '#lib/kb/CauseTable.svelte';
   import ReportReviewQueue from '#lib/kb/ReportReviewQueue.svelte';
+  import DeskOutcome from '#lib/kb/DeskOutcome.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
 </script>
 
@@ -43,6 +44,17 @@ unresolved subset of that group's count, not a proven third cause:
 
 Do not add these again to the issue coverage totals. The different clues need individual
 investigation before assigning another root cause.
+
+## Desk outcome
+
+The two groups ended differently, so they are not "both fixed":
+
+<DeskOutcome ticket={4471} />
+
+The parser group is complete. The hint group is not planned: the booking-v3 form was retired, so
+that issue closes as won't fix, not as fixed. This outcome comes from the desk's engineering
+update, not from GitHub comments. The five flagged reports above remain unexplained by a
+month/day flip; the fix to day/month parsing is not shown to resolve them.
 
 ## Triage policy is still open
 
