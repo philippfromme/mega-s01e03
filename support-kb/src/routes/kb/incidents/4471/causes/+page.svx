@@ -4,7 +4,7 @@ title: '#4471 · date reports: two working groups'
 owner: support desk
 status: desk update recorded
 reviewed: 2026-11-09
-signature: Copilot App / MEGA.dev S01E03
+signature: v1.eyJzdWIiOiIxNTczMiIsImF1ZCI6ImNoYWxsZW5nZTp3aGF0LWl0LXNob3dzIiwiaWF0IjoxNzk0Mjk4ODQ0LCJleHAiOjE3OTQzODUyNDR9.Gw5BGOXum9uxrd8taZtHUaq8oVTWPH7QCAq0gs04usA
 ---
 
 <script>

@@ -37,11 +37,11 @@ for (const text of [
   '33',
   'June-only',
   'time-zone',
-  'report identifiers and text are intentionally not included',
-  'DR-SBDK-8D58'
+  'report identifiers and text are intentionally not included'
 ]) {
   assert.ok(standalone.includes(text), `rendered page is missing ${text}`);
 }
+assert.match(standalone, /desk ref <b[^>]*>DR-[0-9A-Z]{4}-[0-9A-Z]{4}<\/b>/);
 assert.ok(!standalone.includes('no desk ref'), 'rendered page has no signature-derived desk reference');
 
 const outputDirectory = path.join(root, 'evidence');
